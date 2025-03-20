@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
   margin-top: 50px;
 `;
 
@@ -19,14 +19,24 @@ const TrafficLightContainer = styled.div`
 `;
 
 const Light = styled.div<{ active: boolean; color: string }>`
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-color: ${(props) => props.color};
   opacity: ${(props) => (props.active ? 1 : 0.3)};
 `;
 
+const LightBorder = styled.div<{ active: boolean; color: string }>`
+  border: ${(props) => (props.active ? `2px solid ${props.color}` : "")};
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+`;
+
 const Button = styled.button`
+  margin-top: 50px;
   padding: 10px 20px;
   font-size: 16px;
   background-color: #007bff;
@@ -39,4 +49,4 @@ const Button = styled.button`
   }
 `;
 
-export { Container, TrafficLightContainer, Light, Button };
+export { Container, TrafficLightContainer, Light, LightBorder, Button };

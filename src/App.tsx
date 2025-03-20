@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { handleReset } from "./utils";
-import { Container, TrafficLightContainer, Light, Button } from "./components";
+import {
+  Container,
+  TrafficLightContainer,
+  Light,
+  Button,
+  LightBorder,
+} from "./components";
+import { TRAFFIC_LIGHT_STATE_MAP } from "./constant";
 import "./App.css";
 
 function App() {
@@ -17,37 +24,52 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (time === 0 || time === 20) {
-      setStreetA("green");
-      setStreetB("red");
-    } else if (time === 10 || time === 30) {
-      setStreetA("yellow");
-      setStreetB("yellow");
-    } else if (time === 15 || time === 35) {
-      setStreetA("red");
-      setStreetB("green");
+    if (time >= 30) {
+      setTime(0); // Reset to first half cycle
+    } else if (TRAFFIC_LIGHT_STATE_MAP[time]) {
+      setStreetA(TRAFFIC_LIGHT_STATE_MAP[time][0]);
+      setStreetB(TRAFFIC_LIGHT_STATE_MAP[time][1]);
     }
   }, [time]);
 
   return (
-    <Container>
+    <div>
       <h1>Traffic Light System</h1>
-      <TrafficLightContainer>
-        <h2>Street A</h2>
-        <Light color="red" active={streetA === "red"} />
-        <Light color="yellow" active={streetA === "yellow"} />
-        <Light color="green" active={streetA === "green"} />
-      </TrafficLightContainer>
-      <TrafficLightContainer>
-        <h2>Street B</h2>
-        <Light color="red" active={streetB === "red"} />
-        <Light color="yellow" active={streetB === "yellow"} />
-        <Light color="green" active={streetB === "green"} />
-      </TrafficLightContainer>
+      <Container>
+        <TrafficLightContainer>
+          <h2>Street A</h2>
+          <LightBorder color="red" active={streetA === "red"}>
+            <Light color="red" active={streetA === "red"} />
+          </LightBorder>
+
+          <LightBorder color="yellow" active={streetA === "yellow"}>
+            <Light color="yellow" active={streetA === "yellow"} />
+          </LightBorder>
+
+          <LightBorder color="green" active={streetA === "green"}>
+            <Light color="green" active={streetA === "green"} />
+          </LightBorder>
+        </TrafficLightContainer>
+
+        <TrafficLightContainer>
+          <h2>Street B</h2>
+          <LightBorder color="red" active={streetB === "red"}>
+            <Light color="red" active={streetB === "red"} />
+          </LightBorder>
+
+          <LightBorder color="yellow" active={streetB === "yellow"}>
+            <Light color="yellow" active={streetB === "yellow"} />
+          </LightBorder>
+
+          <LightBorder color="green" active={streetB === "green"}>
+            <Light color="green" active={streetB === "green"} />
+          </LightBorder>
+        </TrafficLightContainer>
+      </Container>
       <Button onClick={() => handleReset({ setStreetA, setStreetB, setTime })}>
         Reset
       </Button>
-    </Container>
+    </div>
   );
 }
 
