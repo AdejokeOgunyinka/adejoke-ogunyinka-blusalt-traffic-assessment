@@ -1,6 +1,5 @@
 # React + TypeScript + Vite
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-This is a [React.js](https://react.dev/reference/react) project bootstrapped with [Vite](https://vite.dev/guide/).
+This is a [React.js](https://react.dev/reference/react) project bootstrapped with [Vite](https://vite.dev/guide/). The template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 ## Getting Started
 First, install the project dependencies:
