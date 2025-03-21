@@ -6,6 +6,10 @@ const Container = styled.div`
   align-items: center;
   gap: 50px;
   margin-top: 50px;
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+  }
 `;
 
 const TrafficLightContainer = styled.div`
@@ -15,7 +19,8 @@ const TrafficLightContainer = styled.div`
   gap: 10px;
   border: 2px solid #333;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 100px;
+  background-color: #000;
 `;
 
 const Light = styled.div<{ active: boolean; color: string }>`

@@ -32,3 +32,8 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
+.traffic-text {
+  color: #fff;
+  opacity: 0.7;
+}
