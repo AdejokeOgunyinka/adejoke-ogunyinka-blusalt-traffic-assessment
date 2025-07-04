@@ -1,5 +1,5 @@
 # React + TypeScript + Vite
-This is a [React.js](https://react.dev/reference/react) project bootstrapped with [Vite](https://vite.dev/guide/). The template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a [React.js](https://react.dev/reference/react) project bootstrapped with [Vite](https://vite.dev/guide/). It's an imitation of a Traffic Light. The template provides a minimal setup to get React working in Vite with HMR and some ESLint rules. 
 
 ## Getting Started
 After cloning the project, install the project dependencies:
